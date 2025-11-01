@@ -59,56 +59,14 @@
     <gazebo reference="chassis">
         <material>Gazebo/White</material>
     </gazebo>
-
-    <!-- Front Left Steering Joint -->
-    <joint name="front_left_steering_joint" type="revolute">
-        <parent link="base_link"/>
-        <child link="front_left_steering"/>
-        <origin xyz="0.15 0.175 0" rpy="0 0 0"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
-    </joint>
-
-    <link name="front_left_steering">
-        <visual>
-            <geometry>
-                <cylinder radius="0.01" length="0.05"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        <xacro:inertial_cylinder mass="0.01" length="0.05" radius="0.01">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link>
-
-    <!-- Front Right Steering Joint -->
-    <joint name="front_right_steering_joint" type="revolute">
-        <parent link="base_link"/>
-        <child link="front_right_steering"/>
-        <origin xyz="0.15 -0.175 0" rpy="0 0 0"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
-    </joint>
-
-    <link name="front_right_steering">
-        <visual>
-            <geometry>
-                <cylinder radius="0.01" length="0.05"/>
-            </geometry>
-            <material name="red"/>
-        </visual>
-        <xacro:inertial_cylinder mass="0.01" length="0.05" radius="0.01">
-            <origin xyz="0 0 0" rpy="0 0 0"/>
-        </xacro:inertial_cylinder>
-    </link>
-
+    
     <!-- Front Left Wheel -->
-    <joint name="front_left_wheel_joint" type="revolute">
-        <parent link="front_left_steering"/>
+    <joint name="front_left_wheel_joint" type="continuous">
+        <parent link="chassis"/>
         <child link="front_left_wheel"/>
         <origin xyz="0 0 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
+    
     </joint>
 
     <link name="front_left_wheel">
@@ -135,12 +93,12 @@
     </gazebo> 
 
     <!-- Front Right Wheel -->
-    <joint name="front_right_wheel_joint" type="revolute">
-        <parent link="front_right_steering"/>
+    <joint name="front_right_wheel_joint" type="continuous">
+        <parent link="chassis"/>
         <child link="front_right_wheel"/>
         <origin xyz="0 0 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
+        <axis xyz="0 0 -1"/>
+
     </joint>
 
     <link name="front_right_wheel">
@@ -167,12 +125,12 @@
     </gazebo> 
 
     <!-- Rear Left Wheel -->
-    <joint name="rear_left_wheel_joint" type="revolute">
-        <parent link="base_link"/>
+    <joint name="rear_left_wheel_joint" type="continuous">
+        <parent link="chassis"/>
         <child link="rear_left_wheel"/>
         <origin xyz="-0.15 0.175 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
+
     </joint>
 
     <link name="rear_left_wheel">
@@ -197,12 +155,12 @@
     </gazebo> 
 
     <!-- Rear Right Wheel -->
-    <joint name="rear_right_wheel_joint" type="revolute">
-        <parent link="base_link"/>
+    <joint name="rear_right_wheel_joint" type="continuous">
+        <parent link="chassis"/>
         <child link="rear_right_wheel"/>
         <origin xyz="-0.15 -0.175 0" rpy="${pi/2} 0 0"/>
-        <axis xyz="0 0 1"/>
-        <limit lower="-0.8" upper="0.8" effort="10" velocity="5"/>
+        <axis xyz="0 0 -1"/>
+
     </joint>
 
     <link name="rear_right_wheel">
