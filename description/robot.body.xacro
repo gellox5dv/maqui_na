@@ -62,10 +62,12 @@
     
     <!-- Front Left Wheel -->
     <joint name="front_left_wheel_joint" type="continuous">
-        <parent link="chassis"/>
+        <parent link="base_link"/>
         <child link="front_left_wheel"/>
-        <origin xyz="0.29 0.175 0" rpy="-${pi/2} 0 0"/>
+        <origin xyz="0.2 0.175 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
+        <limit effort="1000" velocity="1000"/>
+        <dynamics damping="0.1" friction="0.2"/>
     
     </joint>
 
@@ -88,17 +90,18 @@
 
     <gazebo reference="front_left_wheel">
         <material>Gazebo/Black</material>
-        <mu1 value="0.0"/>
-        <mu2 value="0.0"/>
+ <!---     <mu1 value="0.0"/> -->
+  <!---    <mu2 value="0.0"/> -->
     </gazebo> 
 
     <!-- Front Right Wheel -->
     <joint name="front_right_wheel_joint" type="continuous">
-        <parent link="chassis"/>
+        <parent link="base_link"/>
         <child link="front_right_wheel"/>
-        <origin xyz="0.29 -0.175 0" rpy="${pi/2} 0 0"/>
+        <origin xyz="0.2 -0.175 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-
+        <limit effort="1000" velocity="1000"/>
+        <dynamics damping="0.1" friction="0.2"/>
     </joint>
 
     <link name="front_right_wheel">
@@ -120,8 +123,8 @@
 
     <gazebo reference="front_right_wheel">
         <material>Gazebo/Black</material>
-        <mu1 value="0.0"/>
-        <mu2 value="0.0"/>
+ <!--       <mu1 value="0.0"/>  -->
+ <!--       <mu2 value="0.0"/>  -->
 
     </gazebo> 
 
@@ -129,9 +132,10 @@
     <joint name="rear_left_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_left_wheel"/>
-        <origin xyz="-0.15 0.175 0" rpy="-${pi/2} 0 0"/>
+        <origin xyz="-0.2 0.175 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-
+        <limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
     </joint>
 
     <link name="rear_left_wheel">
@@ -159,9 +163,10 @@
     <joint name="rear_right_wheel_joint" type="continuous">
         <parent link="base_link"/>
         <child link="rear_right_wheel"/>
-        <origin xyz="-0.15 -0.175 0" rpy="${pi/2} 0 0"/>
+        <origin xyz="-0.2 -0.175 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-
+		<limit effort="10000" velocity="1000" />
+	    <dynamics damping="1.0" friction="1.0" />
     </joint>
 
     <link name="rear_right_wheel">
