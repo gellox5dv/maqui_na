@@ -66,9 +66,7 @@
         <child link="front_left_wheel"/>
         <origin xyz="0.2 0.175 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000" velocity="1000"/>
-        <dynamics damping="0.1" friction="0.2"/>
-    
+
     </joint>
 
     <link name="front_left_wheel">
@@ -100,8 +98,7 @@
         <child link="front_right_wheel"/>
         <origin xyz="0.2 -0.175 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-        <limit effort="1000" velocity="1000"/>
-        <dynamics damping="0.1" friction="0.2"/>
+
     </joint>
 
     <link name="front_right_wheel">
@@ -134,8 +131,7 @@
         <child link="rear_left_wheel"/>
         <origin xyz="-0.2 0.175 0" rpy="-${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-        <limit effort="10000" velocity="1000" />
-	    <dynamics damping="1.0" friction="1.0" />
+
     </joint>
 
     <link name="rear_left_wheel">
@@ -165,8 +161,7 @@
         <child link="rear_right_wheel"/>
         <origin xyz="-0.2 -0.175 0" rpy="${pi/2} 0 0"/>
         <axis xyz="0 0 1"/>
-		<limit effort="10000" velocity="1000" />
-	    <dynamics damping="1.0" friction="1.0" />
+        
     </joint>
 
     <link name="rear_right_wheel">
