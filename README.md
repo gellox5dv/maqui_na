@@ -12,6 +12,10 @@ Simulation → LiDAR Perception → SLAM → Mapping → Navigation (Nav2)
 
 This work serves as a foundation for scalable autonomous driving systems and showcases the integration of robotics and AI techniques in a controlled environment.
 
+## Important ##
+
+Remember that you need to add the visualizations inside rviz, such as robot description, laser, map.
+
 ## Gazebo Environment
 
 ros2 launch maqui_na launch.sim.launch.py world:=../src/maqui_na/worlds/maqui_na_saved.world
